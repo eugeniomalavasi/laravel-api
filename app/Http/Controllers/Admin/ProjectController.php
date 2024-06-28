@@ -19,7 +19,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::with('type', 'technologies')->get();
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -82,6 +82,7 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $project->slug = Str::slug($project->title);
+        
         if ($request->hasFile('cover_img')) {
             if ($project->cover_img) {
                 Storage::delete($project->cover_img);

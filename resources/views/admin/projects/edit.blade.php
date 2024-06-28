@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <form action="{{ route('admin.projects.update', ['project' => $project->slug]) }}" method="POST">
+    <form action="{{ route('admin.projects.update', ['project' => $project->slug]) }}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
 
@@ -19,7 +19,7 @@
         </select>
 
         <div class="mb-3">
-            <label for="cover_image" class="form-label">Project image</label>
+            <label for="cover_image" class="form-label mt-2">Project image</label>
             <input type="file" class="form-control" id="cover_image" name="cover_img">
         </div>
 
