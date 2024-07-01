@@ -12,7 +12,17 @@ class ProjectController extends Controller
         $projects = Project::all();
         
         $data = [
-            'results' => $projects
+            'results' => $projects,
+            'success' => true
+        ];
+        return response()->json($data);
+    }
+
+    public function show(string $project) {
+        $project = Project::with(['type', 'technologies'])->where('slug', $project)->firts();
+        $data = [
+            'results' => $project,
+            'success' => true
         ];
         return response()->json($data);
     }
