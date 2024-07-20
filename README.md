@@ -29,9 +29,10 @@ This project allows users to:
 - Interact with projects via a RESTful API.
 <img width="1100" alt="image" src="https://github.com/user-attachments/assets/6306ef4b-1d46-4aea-be77-cbf023139751">
 
+<img width="1092" alt="image" src="https://github.com/user-attachments/assets/076d51fe-e478-478d-9921-a3ee0b80b02b">
+
 <img width="409" alt="image" src="https://github.com/user-attachments/assets/c82feec0-5119-4d0c-b89d-4a357a9f2b09">    
 
-<img width="1092" alt="image" src="https://github.com/user-attachments/assets/076d51fe-e478-478d-9921-a3ee0b80b02b">
 
 ## Installation
 
