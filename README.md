@@ -1,66 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel CRUD and API Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview
 
-## About Laravel
+This Laravel project implements a basic CRUD (Create, Read, Update, Delete) system for managing projects. It includes various models, migrations, controllers, and views to handle CRUD operations. Additionally, the project provides API routes to facilitate interaction with other applications. User authentication is implemented to ensure secure access to the administrative functions.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. [Installation](#installation)
+2. [Database Setup](#database-setup)
+3. [Migrations](#migrations)
+4. [Seeders](#seeders)
+5. [Authentication](#authentication)
+6. [Routes](#routes)
+   - [Web Routes](#web-routes)
+   - [API Routes](#api-routes)
+7. [Controllers](#controllers)
+8. [Views](#views)
+9. [Models](#models)
+10. [Usage](#usage)
+    - [Web Interface](#web-interface)
+    - [API Interface](#api-interface)
+11. [License](#license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+1. **Clone the repository**:
+    ```bash
+    git clone <repository-url>
+    cd <repository-directory>
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. **Install dependencies**:
+    ```bash
+    composer install
+    npm install
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. **Copy the example environment file and configure it**:
+    ```bash
+    cp .env.example .env
+    ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. **Generate the application key**:
+    ```bash
+    php artisan key:generate
+    ```
 
-## Laravel Sponsors
+## Database Setup
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. **Configure your database settings in the `.env` file**:
+    ```plaintext
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=your_database_name
+    DB_USERNAME=your_database_user
+    DB_PASSWORD=your_database_password
+    ```
 
-### Premium Partners
+2. **Run the migrations** to create the necessary tables:
+    ```bash
+    php artisan migrate
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## Migrations
 
-## Contributing
+The project includes several migration files to set up the database schema:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- `2014_10_12_000000_create_users_table.php`
+- `2014_10_12_100000_create_password_reset_tokens_table.php`
+- `2019_08_19_000000_create_failed_jobs_table.php`
+- `2019_12_14_000001_create_personal_access_tokens_table.php`
+- `2024_06_19_130102_create_projects_table.php`
+- `2024_06_22_134234_add_image_column_to_projects_table.php`
+- `2024_06_24_122843_create_types_table.php`
+- `2024_06_24_123327_add_type_id_foreign_key_to_projects_table.php`
+- `2024_06_25_123948_create_technologies_table.php`
+- `2024_06_25_124114_create_project_technology_table.php`
 
-## Code of Conduct
+## Seeders
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+The seeders included in this project are:
 
-## Security Vulnerabilities
+- `DatabaseSeeder.php`
+- `ProjectTableSeeder.php`
+- `TechnologyTableSeeder.php`
+- `TypesTableSeeder.php`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Run the seeders to populate the database with initial data:
+```bash
+php artisan db:seed
